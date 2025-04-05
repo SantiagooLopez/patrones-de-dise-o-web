@@ -6,14 +6,30 @@ body {
 }
 
 /* Encabezado superior */
-header {
-  background-color: #8b0000;
-  color: white;
+header.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
   padding: 20px;
-  text-align: center;
-  font-size: 24px;
+  gap: 20px;
+}
+
+header .logo {
+  max-height: 80px;
+}
+
+header span {
+  color: #003366; /* Azul oscuro */
+  font-size: 32px;
   font-weight: bold;
 }
+
+
+header .logo {
+  max-height: 80px;
+}
+
 
 /* Menú horizontal */
 .menu {
