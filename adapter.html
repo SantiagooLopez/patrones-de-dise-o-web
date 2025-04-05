@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patrón Adapter</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #8b0000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #8b0000;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-left: 4px solid #8b0000;
+      overflow-x: auto;
+    }
+    ul {
+      margin-bottom: 15px;
+    }
+    .btn-volver {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #8b0000;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn-volver:hover {
+      background-color: #a10000;
+    }
+  </style>
+</head>
+<body>
+<header>
+  Patrón de Diseño Adapter
+</header>
+<main>
+  <h1>¿Qué es el Adapter?</h1>
+  <p>El patrón Adapter es un patrón estructural que permite que dos interfaces incompatibles trabajen juntas. El adaptador actúa como un puente entre ambas, traduciendo llamadas de una a otra.</p>
+
+  <h2>¿Qué problema resuelve?</h2>
+  <p>Cuando se necesita integrar una clase con una interfaz diferente a la esperada por el cliente, el patrón Adapter facilita la compatibilidad sin modificar el código existente.</p>
+
+  <h2>Casos de uso</h2>
+  <ul>
+    <li>Integrar sistemas antiguos con nuevos.</li>
+    <li>Adaptar bibliotecas de terceros a tu código.</li>
+    <li>Unificar interfaces diversas bajo un mismo modelo.</li>
+  </ul>
+
+  <h2>Ejemplo de código en Java</h2>
+  <pre><code>// Clase incompatible con nuestra interfaz
+class EnchufeEuropeo {
+  public void conectar() {
+    System.out.println("Conectado a enchufe europeo.");
+  }
+}
+
+// Interfaz esperada
+interface EnchufeAmericano {
+  void enchufar();
+}
+
+// Adaptador
+class Adaptador implements EnchufeAmericano {
+  private EnchufeEuropeo europeo;
+
+  public Adaptador(EnchufeEuropeo europeo) {
+    this.europeo = europeo;
+  }
+
+  public void enchufar() {
+    europeo.conectar();
+  }
+}</code></pre>
+
+  <h2>Ventajas</h2>
+  <ul>
+    <li>Permite reutilizar clases existentes sin modificar su código.</li>
+    <li>Facilita la integración entre sistemas con interfaces distintas.</li>
+  </ul>
+
+  <h2>Desventajas</h2>
+  <ul>
+    <li>Puede agregar complejidad adicional.</li>
+    <li>El uso excesivo puede generar dificultades para mantener el código.</li>
+  </ul>
+
+  <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
+</main>
+</body>
+</html>

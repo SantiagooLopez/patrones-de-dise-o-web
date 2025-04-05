@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrón Singleton</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f9f9f9;
+          color: #333;
+        }
+        header {
+          background-color: #8b0000;
+          color: white;
+          padding: 20px;
+          text-align: center;
+        }
+        main {
+          padding: 40px;
+          max-width: 900px;
+          margin: auto;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+          color: #8b0000;
+        }
+        ul {
+          list-style-type: square;
+          padding-left: 20px;
+        }
+        section {
+          margin-bottom: 30px;
+        }
+        pre {
+          background-color: #eee;
+          padding: 10px;
+          border-left: 4px solid #8b0000;
+          overflow-x: auto;
+        }
+        .btn-volver {
+          display: inline-block;
+          margin-top: 30px;
+          background-color: #8b0000;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        .btn-volver:hover {
+          background-color: #a10000;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Patrón de Diseño Singleton</h1>
+</header>
+<main>
+    <section>
+        <h2>¿Qué es el Singleton?</h2>
+        <p>El patrón Singleton es un patrón de diseño creacional que se utiliza para restringir la creación de múltiples instancias de una clase. Su objetivo es garantizar que solo exista una única instancia y proporcionar un punto de acceso global a ella.</p>
+        <p>Es útil en situaciones donde tener múltiples instancias podría causar inconsistencias o un alto consumo de recursos. Se implementa asegurando que la clase tenga un constructor privado y un método estático que controle la creación de la instancia.</p>
+    </section>
+
+    <section>
+        <h2>¿Qué problema resuelve?</h2>
+        <p>En algunos escenarios, necesitamos asegurarnos de que ciertos objetos sean únicos en todo el sistema. Por ejemplo, en una aplicación con múltiples módulos, tener varias conexiones a una base de datos puede generar problemas de rendimiento y consistencia. En este caso, el <strong>patrón Singleton</strong> permite centralizar la gestión de la conexión para evitar estos problemas.</p>
+    </section>
+
+    <section>
+        <h2>Casos de uso</h2>
+        <ul>
+            <li>Gestión de conexiones a bases de datos.</li>
+            <li>Implementación de registros de logs en aplicaciones.</li>
+            <li>Control de acceso a archivos de configuración global.</li>
+            <li>Gestión de caché para mejorar el rendimiento.</li>
+            <li>Gestión de colas de impresión en sistemas de impresión.</li>
+            <li>Manejo de sesiones en aplicaciones web.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Ejemplo de código en Java</h2>
+        <pre><code>public class Singleton {
+  private static Singleton instancia;
+
+  private Singleton() {
+    System.out.println("Instancia creada");
+  }
+
+  public static Singleton getInstancia() {
+    if (instancia == null) {
+      instancia = new Singleton();
+    }
+    return instancia;
+  }
+
+  public void mostrarMensaje() {
+    System.out.println("Hola desde el Singleton!");
+  }
+}
+
+public class Main {
+  public static void main(String[] args) {
+    Singleton s1 = Singleton.getInstancia();
+    Singleton s2 = Singleton.getInstancia();
+    s1.mostrarMensaje();
+    System.out.println(s1 == s2);  // true
+  }
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Ventajas del Singleton</h2>
+        <ul>
+            <li>Garantiza que una clase tenga solo una instancia en toda la aplicación.</li>
+            <li>Proporciona un punto de acceso global a la instancia.</li>
+            <li>Evita la duplicación innecesaria de objetos, ahorrando recursos.</li>
+            <li>Facilita la administración y control de estados globales.</li>
+            <li>Es útil para compartir recursos en una aplicación sin crear múltiples instancias.</li>
+            <li>Mejora la sincronización en entornos multihilo cuando se implementa correctamente.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Desventajas del Singleton</h2>
+        <ul>
+            <li>Poca flexibilidad al impedir la creación de múltiples instancias.</li>
+            <li>Puede aumentar el acoplamiento del código al hacer dependencias globales.</li>
+            <li>Puede generar problemas en pruebas unitarias debido a su estado compartido.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Patrones relacionados</h2>
+        <ul>
+            <li><strong>Factory Method</strong>: Puede usarse junto con Singleton para controlar la creación de objetos específicos.</li>
+            <li><strong>Facade</strong>: En muchos casos, el patrón Facade se implementa como un Singleton para centralizar el acceso a un subsistema.</li>
+            <li><strong>Prototype</strong>: Contrasta con Singleton, ya que Prototype permite múltiples copias de una instancia, mientras que Singleton lo limita a una sola.</li>
+        </ul>
+    </section>
+
+    <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
+</main>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrón Decorator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+        }
+        header {
+          background-color: #8b0000;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          font-size: 24px;
+        }
+        main {
+          max-width: 900px;
+          margin: 30px auto;
+          padding: 20px;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+          color: #8b0000;
+        }
+        pre {
+          background-color: #eee;
+          padding: 10px;
+          border-left: 4px solid #8b0000;
+          overflow-x: auto;
+        }
+        ul {
+          margin-bottom: 15px;
+        }
+        .btn-volver {
+          display: inline-block;
+          margin-top: 30px;
+          background-color: #8b0000;
+          color: white;
+          padding: 10px 20px;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        .btn-volver:hover {
+          background-color: #a10000;
+        }
+    </style>
+</head>
+<body>
+<header>
+    Patrón de Diseño Decorator
+</header>
+<main>
+    <h1>¿Qué es el Decorator?</h1>
+    <p>El patrón Decorator es un patrón estructural que permite añadir funcionalidades adicionales a un objeto de manera dinámica, sin alterar su estructura original.</p>
+
+    <h2>¿Qué problema resuelve?</h2>
+    <p>Permite extender el comportamiento de objetos de forma flexible y reutilizable, evitando la herencia múltiple y manteniendo el principio de responsabilidad única.</p>
+
+    <h2>Casos de uso</h2>
+    <ul>
+        <li>Agregar funcionalidades a objetos en tiempo de ejecución.</li>
+        <li>Evitar la explosión de subclases al combinar múltiples comportamientos.</li>
+        <li>Extender bibliotecas o frameworks de terceros.</li>
+    </ul>
+
+    <h2>Ejemplo de código en Java</h2>
+    <pre><code>interface Cafe {
+  String servir();
+}
+
+class CafeSimple implements Cafe {
+  public String servir() {
+    return "Café simple";
+  }
+}
+
+class ConLeche implements Cafe {
+  private Cafe cafe;
+
+  public ConLeche(Cafe cafe) {
+    this.cafe = cafe;
+  }
+
+  public String servir() {
+    return cafe.servir() + " con leche";
+  }
+}
+
+class ConChocolate implements Cafe {
+  private Cafe cafe;
+
+  public ConChocolate(Cafe cafe) {
+    this.cafe = cafe;
+  }
+
+  public String servir() {
+    return cafe.servir() + " y chocolate";
+  }
+}</code></pre>
+
+    <h2>Ventajas</h2>
+    <ul>
+        <li>Permite añadir responsabilidades sin modificar clases existentes.</li>
+        <li>Favorece la composición sobre la herencia.</li>
+        <li>Facilita el cumplimiento del principio abierto/cerrado.</li>
+    </ul>
+
+    <h2>Desventajas</h2>
+    <ul>
+        <li>Puede generar muchos objetos decoradores anidados.</li>
+        <li>La depuración puede volverse más difícil por la complejidad en la cadena de decoradores.</li>
+    </ul>
+
+    <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
+</main>
+</body>
+</html>

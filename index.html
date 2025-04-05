@@ -4,55 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Patrones de Diseño</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    nav.menu {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav.menu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav.menu a:hover {
+      background-color: #575757;
+    }
+  </style>
 </head>
 <body>
 
-<section class="hero">
-  <h1>Patrones de Diseño</h1>
-  <p class="intro">
-    Los patrones de diseño (design patterns) son soluciones habituales a problemas comunes en el diseño de software.
-    Cada patrón es como un plano que se puede personalizar para resolver un problema de diseño particular de tu código.
-  </p>
+<header class="encabezado">
+  <img src="img/logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
+  <span>Universidad Católica de Colombia</span>
+</header>
 
-  <div class="botones">
-    <button onclick="mostrarVentajas()">Ventajas</button>
-    <button onclick="irAClasificacion()">Clasificación</button>
-  </div>
-</section>
+<nav class="menu">
+  <a href="que-es.html" target="_blank">¿Qué es?</a>
+  <a href="ventajas.html" target="_blank">Ventajas</a>
+  <a href="clasificacion.html" target="_blank">Clasificación</a>
+</nav>
 
-<section class="ventajas" id="ventajas" style="display: none;">
-  <h2>¿Por qué debería aprender sobre patrones?</h2>
-  <p>
-    La realidad es que podrías trabajar durante años como programador sin conocer un solo patrón. Mucha gente lo hace.
-    Incluso en ese caso, podrías estar implementando patrones sin saberlo. Así que, ¿por qué dedicar tiempo a aprenderlos?
-  </p>
-  <p>
-    Los patrones de diseño son un juego de herramientas de soluciones comprobadas a problemas habituales en el diseño de software.
-    Incluso aunque nunca te encuentres con estos problemas, conocer los patrones sigue siendo de utilidad, porque te enseña a resolver
-    todo tipo de problemas utilizando principios del diseño orientado a objetos.
-  </p>
-  <p>
-    Los patrones de diseño definen un lenguaje común que puedes utilizar con tus compañeros de equipo para comunicaros de forma
-    más eficiente. Podrías decir: “Oh, utiliza un singleton para eso”, y todos entenderían la idea de tu sugerencia. No habría necesidad
-    de explicar qué es un singleton si conocen el patrón y su nombre.
-  </p>
-</section>
+<div class="main-content">
+  <section id="inicio" class="section">
+    <h1>¿Qué son los Patrones de Diseño?</h1>
+    <p>Los patrones de diseño o <em>design patterns</em>, son una solución general, reutilizable y aplicable a diferentes problemas de diseño de software. Se trata de plantillas que identifican problemas en el sistema y proporcionan soluciones apropiadas a problemas generales a los que se han enfrentado los desarrolladores durante un largo periodo de tiempo, a través de prueba y error.</p>
+  </section>
 
-<section class="clasificacion" id="clasificacion">
-  <!-- Aquí pondremos creacionales, estructurales y de comportamiento más adelante -->
-</section>
+  <section id="ventajas" class="section">
+    <h2>Ventajas</h2>
+    <p>El gran crecimiento del sector de las tecnologías de la información ha hecho que las prácticas de desarrollo de software evolucionen. Antes se requería completar todo el software antes de realizar pruebas, lo que suponía encontrarse con problemas. Para ahorrar tiempo y evitar volver a la etapa de desarrollo una vez que este ha finalizado, se introdujo una práctica de prueba durante la fase de desarrollo. Esta práctica se usa para identificar condiciones de error y problemas en el código que pueden no ser evidentes en ese momento. En definitiva, los patrones de diseño te ayudan a estar seguro de la validez de tu código, ya que son soluciones que funcionan y han sido probados por muchísimos desarrolladores siendo menos propensos a errores.</p>
+  </section>
 
-<script>
-  function mostrarVentajas() {
-    document.getElementById("ventajas").style.display = "block";
-    document.getElementById("clasificacion").scrollIntoView({ behavior: "smooth" });
-  }
-
-  function irAClasificacion() {
-    window.location.href = "#clasificacion";
-  }
-</script>
+  <section id="clasificacion" class="section">
+    <h2>Clasificación de los Patrones de Diseño</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Creacionales</h3>
+        <p>Estos patrones proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y reutilización del código existente.</p>
+      </div>
+      <div class="card">
+        <h3>Estructurales</h3>
+        <p>Estos patrones explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo la flexibilidad y eficiencia.</p>
+      </div>
+      <div class="card">
+        <h3>De Comportamiento</h3>
+        <p>Estos patrones se encargan de la comunicación eficiente y la asignación de responsabilidades entre objetos.</p>
+      </div>
+    </div>
+  </section>
+</div>
 
 </body>
 </html>

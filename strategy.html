@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patrón Strategy</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #8b0000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #8b0000;
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-left: 4px solid #8b0000;
+      overflow-x: auto;
+    }
+    ul {
+      margin-bottom: 15px;
+    }
+    .btn-volver {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #8b0000;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn-volver:hover {
+      background-color: #a10000;
+    }
+  </style>
+</head>
+<body>
+<header>
+  Patrón de Diseño Strategy
+</header>
+<main>
+  <h1>¿Qué es el Strategy?</h1>
+  <p>El patrón Strategy es un patrón de comportamiento que permite definir una familia de algoritmos, encapsular cada uno y hacerlos intercambiables. Strategy permite cambiar el comportamiento de un objeto en tiempo de ejecución.</p>
+
+  <h2>¿Qué problema resuelve?</h2>
+  <p>Evita el uso excesivo de condicionales para seleccionar comportamientos. Cada estrategia representa una forma diferente de ejecutar una operación, permitiendo mayor flexibilidad y mantenimiento del código.</p>
+
+  <h2>Casos de uso</h2>
+  <ul>
+    <li>Implementar algoritmos que puedan variar (ej. compresión, ordenamiento).</li>
+    <li>Seleccionar dinámicamente un algoritmo en tiempo de ejecución.</li>
+    <li>Evitar estructuras de control complejas en código.</li>
+  </ul>
+
+  <h2>Ejemplo de código en Java</h2>
+  <pre><code>interface Estrategia {
+  void ejecutar();
+}
+
+class EstrategiaA implements Estrategia {
+  public void ejecutar() {
+    System.out.println("Estrategia A ejecutada");
+  }
+}
+
+class EstrategiaB implements Estrategia {
+  public void ejecutar() {
+    System.out.println("Estrategia B ejecutada");
+  }
+}
+
+class Contexto {
+  private Estrategia estrategia;
+
+  public void setEstrategia(Estrategia estrategia) {
+    this.estrategia = estrategia;
+  }
+
+  public void ejecutarEstrategia() {
+    estrategia.ejecutar();
+  }
+}</code></pre>
+
+  <h2>Ventajas</h2>
+  <ul>
+    <li>Permite cambiar algoritmos en tiempo de ejecución.</li>
+    <li>Reduce el acoplamiento entre contexto y algoritmo.</li>
+    <li>El código es más limpio y fácil de mantener.</li>
+  </ul>
+
+  <h2>Desventajas</h2>
+  <ul>
+    <li>Aumenta el número de clases.</li>
+    <li>Puede introducir complejidad innecesaria para comportamientos simples.</li>
+  </ul>
+
+  <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
+</main>
+</body>
+</html>
