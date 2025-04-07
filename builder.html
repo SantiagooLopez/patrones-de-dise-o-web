@@ -4,125 +4,202 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patrón Builder</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href=".idea/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f9ff;
+      color: #333;
     }
-    header {
-      background-color: #8b0000;
+
+    header.encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header .logo {
+      max-height: 80px;
+    }
+
+    .titulo-institucion {
+      color: #003366;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .titulo-pagina {
+      color: #003366;
+      font-size: 28px;
+      font-weight: bold;
+      border: 2px solid #FFCC00;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
+
+    .menu {
+      background-color: #003366;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+    }
+
+    .menu a {
+      font-weight: bold;
+      background-color: #fef8e7;
+      border: 2px solid #FFCC00;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #003366;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .main-content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .imagen-patron {
+      border: 2px solid #FFCC00;
+      padding: 10px;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .imagen-patron img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    h1, h2 {
+      color: #003366;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
+    footer {
+      background-color: #003366;
       color: white;
       text-align: center;
       padding: 20px;
-      font-size: 24px;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #8b0000;
-    }
-    p {
-      margin-bottom: 15px;
-    }
-    pre {
-      background-color: #eee;
-      padding: 10px;
-      border-left: 4px solid #8b0000;
-      overflow-x: auto;
-    }
-    .btn-volver {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #8b0000;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .btn-volver:hover {
-      background-color: #a10000;
+      font-size: 14px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-<header>
-  Patrón de Diseño Builder
+<header class="encabezado">
+  <div class="logo-container">
+    <img src=".idea/img/logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
+    <span class="titulo-institucion">Universidad Católica de Colombia</span>
+  </div>
+  <a href="index.html" class="titulo-pagina">Patrones de Diseño</a>
 </header>
-<main>
-  <h1>¿Qué es el Builder?</h1>
-  <p>El patrón Builder es un patrón de diseño creacional que permite construir objetos complejos paso a paso. Separa la construcción de un objeto de su representación, de modo que el mismo proceso de construcción puede crear diferentes representaciones.</p>
+
+<nav class="menu">
+  <a href="que-es.html" target="_blank"><i class="fas fa-question-circle"></i> ¿Qué es?</a>
+  <a href="ventajas.html" target="_blank"><i class="fas fa-lightbulb"></i> Ventajas</a>
+  <a href="clasificacion.html" target="_blank"><i class="fas fa-layer-group"></i> Clasificación</a>
+</nav>
+
+<div class="main-content">
+  <h1>Patrón Builder</h1>
+
+  <div class="imagen-patron">
+    <img src=".idea/img/builder1.png" alt="Diagrama UML Builder">
+  </div>
+
+  <p>El patrón <strong>Builder</strong> es un patrón de diseño creacional que permite la construcción de objetos complejos paso a paso. A diferencia de otros patrones creacionales, el Builder no requiere que el producto final tenga una única representación.</p>
 
   <h2>¿Qué problema resuelve?</h2>
-  <p>Builder es útil cuando una clase tiene muchos parámetros opcionales o cuando el proceso de construcción es complejo. En lugar de usar múltiples constructores, se define un objeto Builder que configura el objeto paso a paso.</p>
+  <p>Cuando la creación de un objeto requiere múltiples pasos o configuraciones, el patrón Builder permite separar la construcción de un objeto de su representación, facilitando el mantenimiento del código y la reutilización.</p>
 
   <h2>Casos de uso</h2>
   <ul>
-    <li>Creación de objetos con muchos parámetros opcionales.</li>
-    <li>Construcción de objetos con múltiples etapas o configuraciones.</li>
-    <li>Construcción de interfaces de usuario o estructuras anidadas.</li>
+    <li>Creación de objetos con múltiples parámetros opcionales</li>
+    <li>Formularios con campos dinámicos</li>
+    <li>Configuradores de productos</li>
+    <li>Generadores de documentos o reportes complejos</li>
   </ul>
-
-  <h2>Ejemplo de código en Java</h2>
-  <pre><code>public class Auto {
-  private String marca;
-  private String modelo;
-  private int año;
-
-  private Auto(Builder builder) {
-    this.marca = builder.marca;
-    this.modelo = builder.modelo;
-    this.año = builder.año;
-  }
-
-  public static class Builder {
-    private String marca;
-    private String modelo;
-    private int año;
-
-    public Builder setMarca(String marca) {
-      this.marca = marca;
-      return this;
-    }
-
-    public Builder setModelo(String modelo) {
-      this.modelo = modelo;
-      return this;
-    }
-
-    public Builder setAño(int año) {
-      this.año = año;
-      return this;
-    }
-
-    public Auto build() {
-      return new Auto(this);
-    }
-  }
-}</code></pre>
 
   <h2>Ventajas</h2>
   <ul>
-    <li>Facilita la creación de objetos complejos paso a paso.</li>
-    <li>Mejora la legibilidad del código.</li>
-    <li>Evita constructores con muchos parámetros.</li>
+    <li>Separación entre construcción y representación</li>
+    <li>Permite crear diferentes representaciones de un mismo objeto</li>
+    <li>Mejora la legibilidad del código</li>
+    <li>Fácil de extender con nuevos pasos de construcción</li>
   </ul>
 
-  <h2>Desventajas</h2>
-  <ul>
-    <li>Puede requerir más código en comparación con un constructor simple.</li>
-    <li>Puede ser excesivo para objetos simples.</li>
-  </ul>
+  <h2>Ejemplo en Java</h2>
+  <pre><code>public class Producto {
+  private String parteA;
+  private String parteB;
 
-  <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
-</main>
+  public void setParteA(String parteA) {
+    this.parteA = parteA;
+  }
+
+  public void setParteB(String parteB) {
+    this.parteB = parteB;
+  }
+}
+
+public class Builder {
+  private Producto producto = new Producto();
+
+  public Builder construirParteA() {
+    producto.setParteA("A");
+    return this;
+  }
+
+  public Builder construirParteB() {
+    producto.setParteB("B");
+    return this;
+  }
+
+  public Producto obtenerResultado() {
+    return producto;
+  }
+}</code></pre>
+</div>
+
+<footer>
+  <p>Creado por Andrey Santiago López Moreno – Ingeniería de Sistemas</p>
+  <p>Construcción de Software – 8º semestre</p>
+  <p>Correo: aslopez98@ucatolica.edu.co</p>
+  <p>Universidad Católica de Colombia &copy; 2025</p>
+</footer>
 </body>
 </html>

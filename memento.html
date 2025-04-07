@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patrón Observer</title>
+  <title>Patrón Memento</title>
   <link rel="stylesheet" href=".idea/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
@@ -13,6 +13,7 @@
       background-color: #f5f9ff;
       color: #333;
     }
+
     header.encabezado {
       display: flex;
       align-items: center;
@@ -22,19 +23,23 @@
       gap: 20px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+
     .logo-container {
       display: flex;
       align-items: center;
       gap: 20px;
     }
+
     header .logo {
       max-height: 80px;
     }
+
     .titulo-institucion {
       color: #003366;
       font-size: 32px;
       font-weight: bold;
     }
+
     .titulo-pagina {
       color: #003366;
       font-size: 28px;
@@ -46,12 +51,14 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-decoration: none;
     }
+
     .menu {
       background-color: #003366;
       display: flex;
       justify-content: space-around;
       padding: 15px 0;
     }
+
     .menu a {
       font-weight: bold;
       background-color: #fef8e7;
@@ -64,6 +71,7 @@
       align-items: center;
       gap: 8px;
     }
+
     .main-content {
       max-width: 1000px;
       margin: 40px auto;
@@ -72,6 +80,7 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .imagen-patron {
       border: 2px solid #FFCC00;
       padding: 10px;
@@ -82,20 +91,24 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       text-align: center;
     }
+
     .imagen-patron img {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
     }
+
     h1, h2 {
       color: #003366;
     }
+
     pre {
       background-color: #f0f0f0;
       padding: 15px;
       border-radius: 8px;
       overflow-x: auto;
     }
+
     .btn-volver {
       display: block;
       width: fit-content;
@@ -107,9 +120,11 @@
       border-radius: 5px;
       font-weight: bold;
     }
+
     .btn-volver:hover {
       background-color: #00509e;
     }
+
     footer {
       background-color: #003366;
       color: white;
@@ -136,57 +151,45 @@
 </nav>
 
 <div class="main-content">
-  <h1>Patrón Observer</h1>
+  <h1>Patrón Memento</h1>
 
   <div class="imagen-patron">
-    <img src=".idea/img/observer1.png" alt="Diagrama UML Observer">
+    <img src=".idea/img/memento1.png" alt="Diagrama UML Memento">
   </div>
 
-  <p>El patrón <strong>Observer</strong> es un patrón de diseño de comportamiento que define una dependencia de uno a muchos entre objetos, de manera que cuando uno cambia su estado, todos sus dependientes son notificados automáticamente.</p>
+  <p>El patrón <strong>Memento</strong> es un patrón de comportamiento que permite guardar y restaurar el estado previo de un objeto sin violar la encapsulación.</p>
 
   <h2>¿Qué problema resuelve?</h2>
-  <p>Permite que múltiples objetos estén sincronizados con un sujeto sin acoplarlos estrechamente entre sí.</p>
+  <p>Permite implementar funcionalidades como "deshacer" o restaurar estados anteriores en sistemas sin exponer los detalles internos del objeto.</p>
 
   <h2>Casos de uso</h2>
   <ul>
-    <li>Sistemas de eventos y notificaciones</li>
-    <li>Interfaces gráficas que actualizan datos</li>
-    <li>Patrones MVC para sincronización de modelos y vistas</li>
+    <li>Sistemas de edición (texto, gráficos)</li>
+    <li>Control de versiones</li>
+    <li>Juegos para guardar y cargar estados</li>
   </ul>
 
   <h2>Ventajas</h2>
   <ul>
-    <li>Desacopla sujeto y observadores</li>
-    <li>Fácil de extender con nuevos observadores</li>
-    <li>Facilita la programación reactiva</li>
+    <li>Preserva la encapsulación</li>
+    <li>Permite restaurar estados sin acoplamiento</li>
+    <li>Fácil de implementar para estados simples</li>
   </ul>
 
   <h2>Ejemplo en Java</h2>
-  <pre><code>// Sujeto
-interface Sujeto {
-  void registrar(Observador o);
-  void notificar();
+  <pre><code>// Memento
+class Estado {
+  private String estado;
+  public Estado(String estado) { this.estado = estado; }
+  public String getEstado() { return estado; }
 }
 
-// Observador
-interface Observador {
-  void actualizar(String mensaje);
-}
-
-// Implementación
-class Canal implements Sujeto {
-  private List<Observador> subs = new ArrayList<>();
-  private String contenido;
-  public void registrar(Observador o) { subs.add(o); }
-  public void subirVideo(String video) {
-    contenido = video;
-    notificar();
-  }
-  public void notificar() {
-    for (Observador o : subs) {
-      o.actualizar(contenido);
-    }
-  }
+// Originador
+class Editor {
+  private String texto;
+  public void escribir(String nuevo) { texto = nuevo; }
+  public Estado guardar() { return new Estado(texto); }
+  public void restaurar(Estado estado) { texto = estado.getEstado(); }
 }</code></pre>
 
   <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>

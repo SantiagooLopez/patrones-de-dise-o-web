@@ -2,75 +2,214 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patrones de Diseño</title>
+  <link rel="stylesheet" href=".idea/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    nav.menu {
-      background-color: #333;
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1600267165869-47e6ba6c21b3?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header.encabezado {
       display: flex;
-      justify-content: center;
-      padding: 10px 0;
+      align-items: center;
+      justify-content: space-between;
+      background-color: white;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header .logo {
+      max-height: 80px;
+    }
+
+    .titulo-institucion {
+      color: #003366;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .titulo-pagina {
+      color: #003366;
+      font-size: 28px;
+      font-weight: bold;
+      border: 2px solid #FFCC00;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background-color: #fef8e7;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    nav.menu a {
-      color: white;
       text-decoration: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
 
-    nav.menu a:hover {
-      background-color: #575757;
+    .titulo-pagina:hover {
+      background-color: #fff3c1;
+    }
+
+    .menu {
+      background-color: #003366;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu a {
+      font-weight: bold;
+      background-color: #fef8e7;
+      border: 2px solid #FFCC00;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #003366;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu a:hover {
+      background-color: #fff3c1;
+      transform: scale(1.05);
+    }
+
+    .main-content {
+      padding: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .contenido {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .contenido h2 {
+      color: #003366;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .contenido-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contenido-item {
+      background-color: #ffffffee;
+      border: 2px solid #FFCC00;
+      border-radius: 12px;
+      width: 300px;
+      padding: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .contenido-item:hover {
+      transform: scale(1.03);
+    }
+
+    .contenido-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .contenido-item h3 {
+      color: #003366;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .contenido-item p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .contenido-item a {
+      text-decoration: none;
+      background-color: #003366;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
 
 <header class="encabezado">
-  <img src="logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
-  <span>Universidad Católica de Colombia</span>
+  <div class="logo-container">
+    <img src=".idea/img/logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
+    <span class="titulo-institucion">Universidad Católica de Colombia</span>
+  </div>
+  <a href="index.html" class="titulo-pagina">Patrones de Diseño</a>
 </header>
 
 <nav class="menu">
-  <a href="que-es.html" target="_blank">¿Qué es?</a>
-  <a href="ventajas.html" target="_blank">Ventajas</a>
-  <a href="clasificacion.html" target="_blank">Clasificación</a>
+  <a href="que-es.html" target="_blank"><i class="fas fa-question-circle"></i> ¿Qué es?</a>
+  <a href="ventajas.html" target="_blank"><i class="fas fa-lightbulb"></i> Ventajas</a>
+  <a href="clasificacion.html" target="_blank"><i class="fas fa-layer-group"></i> Clasificación</a>
 </nav>
 
 <div class="main-content">
-  <section id="inicio" class="section">
-    <h1>¿Qué son los Patrones de Diseño?</h1>
-    <p>Los patrones de diseño o <em>design patterns</em>, son una solución general, reutilizable y aplicable a diferentes problemas de diseño de software. Se trata de plantillas que identifican problemas en el sistema y proporcionan soluciones apropiadas a problemas generales a los que se han enfrentado los desarrolladores durante un largo periodo de tiempo, a través de prueba y error.</p>
-  </section>
-
-  <section id="ventajas" class="section">
-    <h2>Ventajas</h2>
-    <p>El gran crecimiento del sector de las tecnologías de la información ha hecho que las prácticas de desarrollo de software evolucionen. Antes se requería completar todo el software antes de realizar pruebas, lo que suponía encontrarse con problemas. Para ahorrar tiempo y evitar volver a la etapa de desarrollo una vez que este ha finalizado, se introdujo una práctica de prueba durante la fase de desarrollo. Esta práctica se usa para identificar condiciones de error y problemas en el código que pueden no ser evidentes en ese momento. En definitiva, los patrones de diseño te ayudan a estar seguro de la validez de tu código, ya que son soluciones que funcionan y han sido probados por muchísimos desarrolladores siendo menos propensos a errores.</p>
-  </section>
-
-  <section id="clasificacion" class="section">
-    <h2>Clasificación de los Patrones de Diseño</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Creacionales</h3>
-        <p>Estos patrones proporcionan mecanismos de creación de objetos que aumentan la flexibilidad y reutilización del código existente.</p>
+  <section class="contenido">
+    <h2>Contenido</h2>
+    <div class="contenido-grid">
+      <div class="contenido-item">
+        <img src=".idea/img/que-es.jpg" alt="¿Qué es?">
+        <h3>¿Qué es?</h3>
+        <p>Conoce qué son los patrones de diseño y cómo aportan al desarrollo de software.</p>
+        <a href="que-es.html" target="_blank">Ver más</a>
       </div>
-      <div class="card">
-        <h3>Estructurales</h3>
-        <p>Estos patrones explican cómo ensamblar objetos y clases en estructuras más grandes, manteniendo la flexibilidad y eficiencia.</p>
+      <div class="contenido-item">
+        <img src=".idea/img/ventajas.png" alt="Ventajas">
+        <h3>Ventajas</h3>
+        <p>Descubre por qué aprender patrones mejora tu código, diseño y trabajo en equipo.</p>
+        <a href="ventajas.html" target="_blank">Ver más</a>
       </div>
-      <div class="card">
-        <h3>De Comportamiento</h3>
-        <p>Estos patrones se encargan de la comunicación eficiente y la asignación de responsabilidades entre objetos.</p>
+      <div class="contenido-item">
+        <img src=".idea/img/clasificacion.png" alt="Clasificación">
+        <h3>Clasificación</h3>
+        <p>Explora los tipos de patrones: creacionales, estructurales y de comportamiento.</p>
+        <a href="clasificacion.html" target="_blank">Ver más</a>
       </div>
     </div>
   </section>
 </div>
+
+<footer>
+  <p>Creado por Andrey Santiago López Moreno – Ingeniería de Sistemas</p>
+  <p>Construcción de Software – 8º semestre</p>
+  <p>Correo: aslopez98@ucatolica.edu.co</p>
+  <p>Universidad Católica de Colombia &copy; 2025</p>
+</footer>
 
 </body>
 </html>

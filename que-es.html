@@ -4,61 +4,198 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>¿Qué son los Patrones de Diseño?</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href=".idea/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: url('https://images.unsplash.com/photo-1600267165869-47e6ba6c21b3?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
     }
-    header {
-      background-color: #8b0000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 24px;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
+
+    header.encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background-color: white;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header .logo {
+      max-height: 80px;
+    }
+
+    .titulo-institucion {
+      color: #003366;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .titulo-pagina {
+      color: #003366;
+      font-size: 28px;
+      font-weight: bold;
+      border: 2px solid #FFCC00;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
+
+    .titulo-pagina:hover {
+      background-color: #fff3c1;
+    }
+
+    .menu {
+      background-color: #003366;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu a {
+      font-weight: bold;
+      background-color: #fef8e7;
+      border: 2px solid #FFCC00;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #003366;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .menu a:hover {
+      background-color: #fff3c1;
+      transform: scale(1.05);
+    }
+
+    .main-content {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .bloque {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .bloque img {
+      max-width: 300px;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    h1 {
-      color: #8b0000;
+
+    .bloque-texto {
+      flex: 1;
     }
-    p {
-      margin-bottom: 15px;
+
+    .bloque-texto h2 {
+      color: #003366;
+      font-size: 24px;
+      margin-bottom: 10px;
     }
-    .btn-volver {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #8b0000;
+
+    .bloque-texto p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .bloque-texto p strong {
+      color: #003366;
+    }
+
+    footer {
+      background-color: #003366;
       color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .btn-volver:hover {
-      background-color: #a10000;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-<header>
-  ¿Qué son los Patrones de Diseño?
+
+<header class="encabezado">
+  <div class="logo-container">
+    <img src=".idea/img/logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
+    <span class="titulo-institucion">Universidad Católica de Colombia</span>
+  </div>
+  <a href="index.html" class="titulo-pagina">Patrones de Diseño</a>
 </header>
-<main>
-  <h1>¿Qué son los Patrones de Diseño?</h1>
-  <p>Los patrones de diseño o <em>design patterns</em>, son una solución general, reutilizable y aplicable a diferentes problemas de diseño de software. Se trata de plantillas que identifican problemas en el sistema y proporcionan soluciones apropiadas a problemas generales a los que se han enfrentado los desarrolladores durante un largo periodo de tiempo, a través de prueba y error.</p>
-  <p>Estos patrones proporcionan un enfoque estructurado y reutilizable para resolver situaciones recurrentes en el desarrollo de software. Los patrones de diseño ayudan a los desarrolladores a comunicarse y compartir soluciones eficientes y efectivas que han demostrado ser exitosas en el pasado.</p>
-  <p>Cada patrón de diseño tiene un propósito específico y ofrece una solución a un problema de diseño común. Al utilizar un patrón de diseño, los desarrolladores pueden aprovechar la experiencia acumulada y evitar reinventar la rueda, lo que resulta en un software más eficiente, mantenible y escalable.</p>
-  <p>Es importante tener en cuenta que los patrones de diseño no son algoritmos o código listo para usar, sino más bien pautas y descripciones de soluciones de diseño. Los desarrolladores deben adaptar e implementar los patrones de diseño de acuerdo con los requisitos y características específicas de su proyecto de software.</p>
-  <p>Los patrones de diseño de software se basan en principios y prácticas de diseño que han evolucionado a lo largo del tiempo. A menudo, se describen utilizando terminología y notaciones específicas para facilitar su comprensión y aplicación.</p>
-  <a href="index.html" class="btn-volver">Volver al inicio</a>
-</main>
+
+<nav class="menu">
+  <a href="que-es.html" target="_blank"><i class="fas fa-question-circle"></i> ¿Qué es?</a>
+  <a href="ventajas.html" target="_blank"><i class="fas fa-lightbulb"></i> Ventajas</a>
+  <a href="clasificacion.html" target="_blank"><i class="fas fa-layer-group"></i> Clasificación</a>
+</nav>
+
+<div class="main-content">
+  <div class="bloque">
+    <div class="bloque-texto">
+      <h2>Soluciones Reutilizables</h2>
+        <p><strong>Los patrones de diseño</strong> representan soluciones generales, reutilizables y comprobadas que abordan problemas comunes que surgen una y otra vez en el desarrollo de software. Estas soluciones no son piezas de código específicas, sino esquemas de diseño que pueden adaptarse a múltiples contextos, facilitando la toma de decisiones arquitectónicas más efectivas y sostenibles.
+          A lo largo de los años, y gracias a la experiencia acumulada por miles de desarrolladores alrededor del mundo, estos patrones han emergido como el resultado de un proceso constante de análisis, prueba, error y mejora continua. Cada patrón encapsula una estrategia que ha demostrado ser útil para resolver ciertos tipos de problemas, lo que los convierte en herramientas valiosas tanto para principiantes como para desarrolladores experimentados.</p>
+    </div>
+    <img src=".idea/img/patrones1.png" alt="Ilustración de patrones de diseño">
+  </div>
+
+  <div class="bloque">
+    <img src=".idea/img/patrones2.png" alt="Ejemplo de estructura de patrón">
+    <div class="bloque-texto">
+      <h2>Estructura y Comunicación</h2>
+      <p></strong>Los patrones de diseño</strong> no solo ofrecen soluciones efectivas y reutilizables a problemas recurrentes, sino que también proporcionan una estructura clara para organizar el código y facilitar la colaboración entre desarrolladores. Cada patrón define roles, responsabilidades y relaciones entre clases u objetos, ayudando a construir sistemas coherentes, modulares y fáciles de entender.
+        La estructura de un patrón de diseño actúa como un plano: establece cómo deben organizarse los componentes del sistema para resolver una necesidad específica, ya sea la creación de objetos (patrones creacionales), la organización del flujo de datos (estructurales) o la forma en que interactúan los objetos entre sí (comportamiento). </p>
+    </div>
+  </div>
+
+  <div class="bloque">
+    <div class="bloque-texto">
+      <h2>Experiencia Acumulada</h2>
+      <p></strong>Los patrones de diseño</strong> son mucho más que simples soluciones técnicas: son el reflejo de décadas de experiencia acumulada por expertos en ingeniería de software que han enfrentado y resuelto desafíos complejos una y otra vez. Cada patrón nace de la observación cuidadosa, el análisis de problemas reales y la mejora continua a través del tiempo.
+        No surgieron de la teoría, sino de la práctica, de miles de líneas de código escritas, mantenidas y refactorizadas en proyectos reales. </p>
+    </div>
+    <img src=".idea/img/patrones3.png" alt="Aplicación práctica de patrones">
+  </div>
+
+  <div class="bloque">
+    <div class="bloque-texto">
+      <h2>Adaptabilidad y Flexibilidad</h2>
+      <p>Uno de los mayores </strong>beneficios</strong> de los patrones de diseño es su capacidad de ofrecer soluciones flexibles y adaptables a una amplia variedad de contextos y requerimientos. Aunque cada patrón nace de un problema específico, su verdadera fuerza radica en su capacidad para evolucionar junto al software, permitiendo ajustes y extensiones sin necesidad de reconstruirlo desde cero.
+        Los patrones de diseño no imponen una estructura rígida. Al contrario, actúan como guías abiertas que pueden adaptarse a distintos lenguajes de programación, estilos arquitectónicos y necesidades del negocio.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Creado por Andrey Santiago López Moreno – Ingeniería de Sistemas</p>
+  <p>Construcción de Software – 8º semestre</p>
+  <p>Correo: aslopez98@ucatolica.edu.co</p>
+  <p>Universidad Católica de Colombia &copy; 2025</p>
+</footer>
+
 </body>
 </html>

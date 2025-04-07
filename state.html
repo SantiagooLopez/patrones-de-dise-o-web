@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patrón Observer</title>
+  <title>Patrón State</title>
   <link rel="stylesheet" href=".idea/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
@@ -136,56 +136,50 @@
 </nav>
 
 <div class="main-content">
-  <h1>Patrón Observer</h1>
-
+  <h1>Patrón State</h1>
   <div class="imagen-patron">
-    <img src=".idea/img/observer1.png" alt="Diagrama UML Observer">
+    <img src=".idea/img/state1.gif" alt="Diagrama UML State">
   </div>
-
-  <p>El patrón <strong>Observer</strong> es un patrón de diseño de comportamiento que define una dependencia de uno a muchos entre objetos, de manera que cuando uno cambia su estado, todos sus dependientes son notificados automáticamente.</p>
+  <p>El patrón <strong>State</strong> permite que un objeto altere su comportamiento cuando su estado interno cambia. El objeto parecerá haber cambiado su clase.</p>
 
   <h2>¿Qué problema resuelve?</h2>
-  <p>Permite que múltiples objetos estén sincronizados con un sujeto sin acoplarlos estrechamente entre sí.</p>
+  <p>Evita estructuras condicionales extensas al representar cada estado como una clase separada, facilitando la gestión del comportamiento dependiente del estado.</p>
 
   <h2>Casos de uso</h2>
   <ul>
-    <li>Sistemas de eventos y notificaciones</li>
-    <li>Interfaces gráficas que actualizan datos</li>
-    <li>Patrones MVC para sincronización de modelos y vistas</li>
+    <li>Máquinas de estados finitos</li>
+    <li>Comportamientos de usuario dinámicos</li>
+    <li>Gestión de estados en juegos, UI, workflows</li>
   </ul>
 
   <h2>Ventajas</h2>
   <ul>
-    <li>Desacopla sujeto y observadores</li>
-    <li>Fácil de extender con nuevos observadores</li>
-    <li>Facilita la programación reactiva</li>
+    <li>Organiza mejor el código basado en estados</li>
+    <li>Facilita agregar nuevos estados sin alterar código existente</li>
+    <li>Promueve el principio de responsabilidad única</li>
   </ul>
 
   <h2>Ejemplo en Java</h2>
-  <pre><code>// Sujeto
-interface Sujeto {
-  void registrar(Observador o);
-  void notificar();
+  <pre><code>// Estado
+interface Estado {
+  void manejar();
 }
 
-// Observador
-interface Observador {
-  void actualizar(String mensaje);
-}
-
-// Implementación
-class Canal implements Sujeto {
-  private List<Observador> subs = new ArrayList<>();
-  private String contenido;
-  public void registrar(Observador o) { subs.add(o); }
-  public void subirVideo(String video) {
-    contenido = video;
-    notificar();
+// Estado concreto
+class EstadoActivo implements Estado {
+  public void manejar() {
+    System.out.println("Estado activo");
   }
-  public void notificar() {
-    for (Observador o : subs) {
-      o.actualizar(contenido);
-    }
+}
+
+// Contexto
+class Contexto {
+  private Estado estado;
+  public void establecerEstado(Estado estado) {
+    this.estado = estado;
+  }
+  public void ejecutar() {
+    estado.manejar();
   }
 }</code></pre>
 

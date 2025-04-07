@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patrón Observer</title>
+  <title>Patrón Template Method</title>
   <link rel="stylesheet" href=".idea/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
@@ -136,57 +136,49 @@
 </nav>
 
 <div class="main-content">
-  <h1>Patrón Observer</h1>
+  <h1>Patrón Template Method</h1>
 
   <div class="imagen-patron">
-    <img src=".idea/img/observer1.png" alt="Diagrama UML Observer">
+    <img src=".idea/img/templatemethod1.png " alt="Diagrama UML Template Method">
   </div>
 
-  <p>El patrón <strong>Observer</strong> es un patrón de diseño de comportamiento que define una dependencia de uno a muchos entre objetos, de manera que cuando uno cambia su estado, todos sus dependientes son notificados automáticamente.</p>
+  <p>El patrón <strong>Template Method</strong> define el esqueleto de un algoritmo en una operación, delegando algunos pasos a las subclases. Permite redefinir ciertos pasos de un algoritmo sin cambiar su estructura general.</p>
 
   <h2>¿Qué problema resuelve?</h2>
-  <p>Permite que múltiples objetos estén sincronizados con un sujeto sin acoplarlos estrechamente entre sí.</p>
+  <p>Facilita la reutilización del código común a través de clases abstractas, y permite personalizar partes específicas del algoritmo en subclases concretas.</p>
 
   <h2>Casos de uso</h2>
   <ul>
-    <li>Sistemas de eventos y notificaciones</li>
-    <li>Interfaces gráficas que actualizan datos</li>
-    <li>Patrones MVC para sincronización de modelos y vistas</li>
+    <li>Procesamiento de archivos con formato común</li>
+    <li>Flujos de trabajo predefinidos con pasos personalizables</li>
+    <li>Algoritmos que requieren pasos invariantes y variantes</li>
   </ul>
 
   <h2>Ventajas</h2>
   <ul>
-    <li>Desacopla sujeto y observadores</li>
-    <li>Fácil de extender con nuevos observadores</li>
-    <li>Facilita la programación reactiva</li>
+    <li>Evita la duplicación de código</li>
+    <li>Facilita la extensión del algoritmo</li>
+    <li>Aplica el principio de inversión de control</li>
   </ul>
 
   <h2>Ejemplo en Java</h2>
-  <pre><code>// Sujeto
-interface Sujeto {
-  void registrar(Observador o);
-  void notificar();
+  <pre><code>// Clase abstracta
+abstract class Juego {
+  void jugar() {
+    iniciar();
+    jugarTurno();
+    terminar();
+  }
+  abstract void iniciar();
+  abstract void jugarTurno();
+  abstract void terminar();
 }
 
-// Observador
-interface Observador {
-  void actualizar(String mensaje);
-}
-
-// Implementación
-class Canal implements Sujeto {
-  private List<Observador> subs = new ArrayList<>();
-  private String contenido;
-  public void registrar(Observador o) { subs.add(o); }
-  public void subirVideo(String video) {
-    contenido = video;
-    notificar();
-  }
-  public void notificar() {
-    for (Observador o : subs) {
-      o.actualizar(contenido);
-    }
-  }
+// Subclase concreta
+class Ajedrez extends Juego {
+  void iniciar() { System.out.println("Inicia Ajedrez"); }
+  void jugarTurno() { System.out.println("Moviendo fichas..."); }
+  void terminar() { System.out.println("Fin del juego"); }
 }</code></pre>
 
   <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>

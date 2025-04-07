@@ -4,116 +4,193 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patrón Strategy</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href=".idea/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f9ff;
+      color: #333;
     }
-    header {
-      background-color: #8b0000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 24px;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
+    header.encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background-color: white;
-      border-radius: 10px;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    header .logo {
+      max-height: 80px;
+    }
+    .titulo-institucion {
+      color: #003366;
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .titulo-pagina {
+      color: #003366;
+      font-size: 28px;
+      font-weight: bold;
+      border: 2px solid #FFCC00;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
+    .menu {
+      background-color: #003366;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+    }
+    .menu a {
+      font-weight: bold;
+      background-color: #fef8e7;
+      border: 2px solid #FFCC00;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #003366;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .main-content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+    .imagen-patron {
+      border: 2px solid #FFCC00;
+      padding: 10px;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .imagen-patron img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
     h1, h2 {
-      color: #8b0000;
+      color: #003366;
     }
     pre {
-      background-color: #eee;
-      padding: 10px;
-      border-left: 4px solid #8b0000;
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
       overflow-x: auto;
     }
-    ul {
-      margin-bottom: 15px;
-    }
     .btn-volver {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #8b0000;
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      background-color: #003366;
       color: white;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 5px;
+      font-weight: bold;
     }
     .btn-volver:hover {
-      background-color: #a10000;
+      background-color: #00509e;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-<header>
-  Patrón de Diseño Strategy
+<header class="encabezado">
+  <div class="logo-container">
+    <img src=".idea/img/logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
+    <span class="titulo-institucion">Universidad Católica de Colombia</span>
+  </div>
+  <a href="index.html" class="titulo-pagina">Patrones de Diseño</a>
 </header>
-<main>
-  <h1>¿Qué es el Strategy?</h1>
-  <p>El patrón Strategy es un patrón de comportamiento que permite definir una familia de algoritmos, encapsular cada uno y hacerlos intercambiables. Strategy permite cambiar el comportamiento de un objeto en tiempo de ejecución.</p>
+
+<nav class="menu">
+  <a href="que-es.html" target="_blank"><i class="fas fa-question-circle"></i> ¿Qué es?</a>
+  <a href="ventajas.html" target="_blank"><i class="fas fa-lightbulb"></i> Ventajas</a>
+  <a href="clasificacion.html" target="_blank"><i class="fas fa-layer-group"></i> Clasificación</a>
+</nav>
+
+<div class="main-content">
+  <h1>Patrón Strategy</h1>
+  <div class="imagen-patron">
+    <img src=".idea/img/strategy1.png" alt="Diagrama UML Strategy">
+  </div>
+  <p>El patrón <strong>Strategy</strong> define una familia de algoritmos, encapsula cada uno y los hace intercambiables. Permite que el algoritmo varíe independientemente de los clientes que lo utilizan.</p>
 
   <h2>¿Qué problema resuelve?</h2>
-  <p>Evita el uso excesivo de condicionales para seleccionar comportamientos. Cada estrategia representa una forma diferente de ejecutar una operación, permitiendo mayor flexibilidad y mantenimiento del código.</p>
+  <p>Evita el uso excesivo de condicionales para cambiar comportamientos en tiempo de ejecución, promoviendo el principio de abierto/cerrado.</p>
 
   <h2>Casos de uso</h2>
   <ul>
-    <li>Implementar algoritmos que puedan variar (ej. compresión, ordenamiento).</li>
-    <li>Seleccionar dinámicamente un algoritmo en tiempo de ejecución.</li>
-    <li>Evitar estructuras de control complejas en código.</li>
+    <li>Algoritmos de ordenamiento intercambiables</li>
+    <li>Sistemas de pago con múltiples métodos</li>
+    <li>Juegos con diferentes estrategias de ataque</li>
   </ul>
 
-  <h2>Ejemplo de código en Java</h2>
-  <pre><code>interface Estrategia {
+  <h2>Ventajas</h2>
+  <ul>
+    <li>Permite seleccionar comportamientos en tiempo de ejecución</li>
+    <li>Facilita pruebas y extensión del sistema</li>
+    <li>Reduce el acoplamiento y mejora la cohesión</li>
+  </ul>
+
+  <h2>Ejemplo en Java</h2>
+  <pre><code>// Estrategia
+interface Estrategia {
   void ejecutar();
 }
 
+// Estrategia concreta
 class EstrategiaA implements Estrategia {
   public void ejecutar() {
-    System.out.println("Estrategia A ejecutada");
+    System.out.println("Ejecutando Estrategia A");
   }
 }
 
-class EstrategiaB implements Estrategia {
-  public void ejecutar() {
-    System.out.println("Estrategia B ejecutada");
-  }
-}
-
+// Contexto
 class Contexto {
   private Estrategia estrategia;
-
   public void setEstrategia(Estrategia estrategia) {
     this.estrategia = estrategia;
   }
-
-  public void ejecutarEstrategia() {
+  public void operar() {
     estrategia.ejecutar();
   }
 }</code></pre>
 
-  <h2>Ventajas</h2>
-  <ul>
-    <li>Permite cambiar algoritmos en tiempo de ejecución.</li>
-    <li>Reduce el acoplamiento entre contexto y algoritmo.</li>
-    <li>El código es más limpio y fácil de mantener.</li>
-  </ul>
-
-  <h2>Desventajas</h2>
-  <ul>
-    <li>Aumenta el número de clases.</li>
-    <li>Puede introducir complejidad innecesaria para comportamientos simples.</li>
-  </ul>
-
   <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
-</main>
+</div>
+
+<footer>
+  <p>Creado por Andrey Santiago López Moreno – Ingeniería de Sistemas</p>
+  <p>Construcción de Software – 8º semestre</p>
+  <p>Correo: aslopez98@ucatolica.edu.co</p>
+  <p>Universidad Católica de Colombia &copy; 2025</p>
+</footer>
 </body>
 </html>

@@ -4,112 +4,212 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patrón Adapter</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href=".idea/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f9ff;
+      color: #333;
     }
-    header {
-      background-color: #8b0000;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 24px;
-    }
-    main {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
+
+    header.encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background-color: white;
-      border-radius: 10px;
+      padding: 20px;
+      gap: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header .logo {
+      max-height: 80px;
+    }
+
+    .titulo-institucion {
+      color: #003366;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .titulo-pagina {
+      color: #003366;
+      font-size: 28px;
+      font-weight: bold;
+      border: 2px solid #FFCC00;
+      padding: 12px 24px;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-decoration: none;
+    }
+
+    .menu {
+      background-color: #003366;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+    }
+
+    .menu a {
+      font-weight: bold;
+      background-color: #fef8e7;
+      border: 2px solid #FFCC00;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #003366;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .main-content {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    h1, h2 {
-      color: #8b0000;
-    }
-    pre {
-      background-color: #eee;
+
+    .imagen-patron {
+      border: 2px solid #FFCC00;
       padding: 10px;
-      border-left: 4px solid #8b0000;
+      border-radius: 12px;
+      background-color: #fef8e7;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .imagen-patron img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    h1, h2 {
+      color: #003366;
+    }
+
+    pre {
+      background-color: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
       overflow-x: auto;
     }
-    ul {
-      margin-bottom: 15px;
-    }
+
     .btn-volver {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #8b0000;
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      background-color: #003366;
       color: white;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 5px;
+      font-weight: bold;
     }
+
     .btn-volver:hover {
-      background-color: #a10000;
+      background-color: #00509e;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-<header>
-  Patrón de Diseño Adapter
+<header class="encabezado">
+  <div class="logo-container">
+    <img src=".idea/img/logo_universidad.jpg" alt="Logo Universidad Católica de Colombia" class="logo">
+    <span class="titulo-institucion">Universidad Católica de Colombia</span>
+  </div>
+  <a href="index.html" class="titulo-pagina">Patrones de Diseño</a>
 </header>
-<main>
-  <h1>¿Qué es el Adapter?</h1>
-  <p>El patrón Adapter es un patrón estructural que permite que dos interfaces incompatibles trabajen juntas. El adaptador actúa como un puente entre ambas, traduciendo llamadas de una a otra.</p>
+
+<nav class="menu">
+  <a href="que-es.html" target="_blank"><i class="fas fa-question-circle"></i> ¿Qué es?</a>
+  <a href="ventajas.html" target="_blank"><i class="fas fa-lightbulb"></i> Ventajas</a>
+  <a href="clasificacion.html" target="_blank"><i class="fas fa-layer-group"></i> Clasificación</a>
+</nav>
+
+<div class="main-content">
+  <h1>Patrón Adapter</h1>
+
+  <div class="imagen-patron">
+    <img src=".idea/img/adapter1.svg" alt="Diagrama UML Adapter">
+  </div>
+
+  <p>El patrón <strong>Adapter</strong> (adaptador) es un patrón de diseño estructural que permite que dos interfaces incompatibles trabajen juntas. El adaptador actúa como un puente entre dos clases que de otra forma no podrían colaborar.</p>
 
   <h2>¿Qué problema resuelve?</h2>
-  <p>Cuando se necesita integrar una clase con una interfaz diferente a la esperada por el cliente, el patrón Adapter facilita la compatibilidad sin modificar el código existente.</p>
+  <p>Permite reutilizar clases existentes con interfaces incompatibles con las que el nuevo sistema requiere, evitando la modificación directa del código original.</p>
 
   <h2>Casos de uso</h2>
   <ul>
-    <li>Integrar sistemas antiguos con nuevos.</li>
-    <li>Adaptar bibliotecas de terceros a tu código.</li>
-    <li>Unificar interfaces diversas bajo un mismo modelo.</li>
+    <li>Integrar bibliotecas o sistemas antiguos en nuevas aplicaciones</li>
+    <li>Conectar interfaces incompatibles de diferentes sistemas</li>
+    <li>En pruebas unitarias, simulando clases con adaptadores falsos</li>
   </ul>
-
-  <h2>Ejemplo de código en Java</h2>
-  <pre><code>// Clase incompatible con nuestra interfaz
-class EnchufeEuropeo {
-  public void conectar() {
-    System.out.println("Conectado a enchufe europeo.");
-  }
-}
-
-// Interfaz esperada
-interface EnchufeAmericano {
-  void enchufar();
-}
-
-// Adaptador
-class Adaptador implements EnchufeAmericano {
-  private EnchufeEuropeo europeo;
-
-  public Adaptador(EnchufeEuropeo europeo) {
-    this.europeo = europeo;
-  }
-
-  public void enchufar() {
-    europeo.conectar();
-  }
-}</code></pre>
 
   <h2>Ventajas</h2>
   <ul>
-    <li>Permite reutilizar clases existentes sin modificar su código.</li>
-    <li>Facilita la integración entre sistemas con interfaces distintas.</li>
+    <li>Reutilización de código existente</li>
+    <li>Bajo acoplamiento entre sistemas antiguos y nuevos</li>
+    <li>Fácil de implementar y mantener</li>
   </ul>
 
-  <h2>Desventajas</h2>
-  <ul>
-    <li>Puede agregar complejidad adicional.</li>
-    <li>El uso excesivo puede generar dificultades para mantener el código.</li>
-  </ul>
+  <h2>Ejemplo en Java</h2>
+  <pre><code>// Clase existente incompatible
+class EnchufeEuropeo {
+  public void conectar() {
+    System.out.println("Conectado a enchufe europeo");
+  }
+}
+
+// Interfaz objetivo
+interface EnchufeAmericano {
+  void encender();
+}
+
+// Adaptador
+class AdaptadorEuropeo implements EnchufeAmericano {
+  private EnchufeEuropeo enchufe;
+
+  public AdaptadorEuropeo(EnchufeEuropeo enchufe) {
+    this.enchufe = enchufe;
+  }
+
+  public void encender() {
+    enchufe.conectar();
+  }
+}</code></pre>
 
   <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
-</main>
+</div>
+
+<footer>
+  <p>Creado por Andrey Santiago López Moreno – Ingeniería de Sistemas</p>
+  <p>Construcción de Software – 8º semestre</p>
+  <p>Correo: aslopez98@ucatolica.edu.co</p>
+  <p>Universidad Católica de Colombia &copy; 2025</p>
+</footer>
 </body>
 </html>
