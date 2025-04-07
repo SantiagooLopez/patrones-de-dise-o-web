@@ -162,32 +162,32 @@
   </ul>
 
   <h2>Ejemplo en Java</h2>
-  <pre><code>// Sujeto
-interface Sujeto {
-  void registrar(Observador o);
-  void notificar();
-}
-
-// Observador
-interface Observador {
-  void actualizar(String mensaje);
-}
-
-// Implementación
-class Canal implements Sujeto {
-  private List<Observador> subs = new ArrayList<>();
-  private String contenido;
-  public void registrar(Observador o) { subs.add(o); }
-  public void subirVideo(String video) {
-    contenido = video;
-    notificar();
+    <pre><code>// Sujeto
+  interface Sujeto {
+    void registrar(Observador o);
+    void notificar();
   }
-  public void notificar() {
-    for (Observador o : subs) {
-      o.actualizar(contenido);
+
+  // Observador
+  interface Observador {
+    void actualizar(String mensaje);
+  }
+
+  // Implementación
+  class Canal implements Sujeto {
+    private List<Observador> subs = new ArrayList<>();
+    private String contenido;
+    public void registrar(Observador o) { subs.add(o); }
+    public void subirVideo(String video) {
+      contenido = video;
+      notificar();
     }
-  }
-}</code></pre>
+    public void notificar() {
+      for (Observador o : subs) {
+        o.actualizar(contenido);
+      }
+    }
+  }</code></pre>
 
   <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
 </div>

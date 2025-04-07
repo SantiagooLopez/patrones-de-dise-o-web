@@ -178,33 +178,34 @@
 
   <h2>Ejemplo en Java</h2>
   <pre><code>// Componente
-interface Componente {
-  void mostrar();
-}
-
-// Hoja
-class Hoja implements Componente {
-  private String nombre;
-  public Hoja(String nombre) { this.nombre = nombre; }
-  public void mostrar() {
-    System.out.println(nombre);
-  }
-}
-
-// Compuesto
-class Compuesto implements Componente {
-  private List<Componente> hijos = new ArrayList<>();
-
-  public void agregar(Componente c) {
-    hijos.add(c);
-  }
-
-  public void mostrar() {
-    for (Componente c : hijos) {
-      c.mostrar();
+    interface Componente {
+      void mostrar();
     }
-  }
-}</code></pre>
+
+    // Hoja
+    class Hoja implements Componente {
+      private String nombre;
+      public Hoja(String nombre) { this.nombre = nombre; }
+      public void mostrar() {
+        System.out.println(nombre);
+      }
+    }
+
+    // Compuesto
+    class Compuesto implements Componente {
+      private List<Componente> hijos = new ArrayList<>();
+
+      public void agregar(Componente c) {
+        hijos.add(c);
+      }
+
+      public void mostrar() {
+        for (Componente c : hijos) {
+          c.mostrar();
+        }
+      }
+    }
+  </code></pre>
 
   <a href="clasificacion.html" class="btn-volver">Volver a Clasificación</a>
 </div>
